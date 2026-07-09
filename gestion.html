@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- Démo App Club V65.42 - Gestion - couleurs boutons Gestion matchs -->
+<!-- Démo App Club V65.43 - Gestion - couleurs Domicile/Extérieur et forfaits cohérentes -->
 
 <html lang="fr">
 <head>
@@ -13,7 +13,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Démo Gestion Club</title>
   <meta name="theme-color" content="#1f4e79" />
-  <meta name="app-version" content="V65.42-GESTION-COULEURS-BOUTONS-MATCHS" />
+  <meta name="app-version" content="V65.43-GESTION-COULEURS-DOM-EXT-FORFAITS" />
   <style>
     :root{
       --bg:#050505;
@@ -3120,7 +3120,7 @@ html body main #gestionMatchsScreen #gmSharePrompt.gm-share-prompt button *{
       cursor:pointer;
       z-index:10;
       letter-spacing:0.3px;
-    ">V65.42 GESTION</button>
+    ">V65.43 GESTION</button>
     <div class="hero">
       <div style="position:relative;display:inline-block;">
         <div class="hero-logo-btn" aria-label="Logo de l’application">
@@ -7709,11 +7709,12 @@ ${joueurs.map(j => "• " + j).join("\n")}`;
 <div id="infoModal" class="modal-overlay" onclick="closeInfoModal(event)">
     <div class="modal-card" onclick="event.stopPropagation()">
       <h3 id="versionAppTitle">Application Démo App Club</h3>
-      <div class="modal-line"><span class="modal-label">Version :</span> V65.42 GESTION</div>
+      <div class="modal-line"><span class="modal-label">Version :</span> V65.43 GESTION</div>
       <div class="modal-line"><span class="modal-label">Date de création :</span> 20/04/2026</div>
-      <div class="modal-line"><span class="modal-label">Dernière mise à jour :</span> 02/07/2026</div>
+      <div class="modal-line"><span class="modal-label">Dernière mise à jour :</span> 09/07/2026</div>
       <div class="modal-line"><span class="modal-label">Modifications :</span></div>
       <ul class="modal-list">
+        <li>V65.43 — Gestion : badges Domicile bleus, Extérieur orange et indicateurs de forfait rouges</li>
         <li>V65.42 — Gestion : couleurs lisibles des onglets Ajouter / Modifier et du bouton WhatsApp dans Gestion matchs</li>
         <li>V65.41 — Gestion : lecture directe de JOUEURS via Apps Script pour récupérer exactement le téléphone et les autres champs</li>
         <li>V65.40 — Gestion : récupération fiable et non mise en cache des données JOUEURS avant modification</li>
@@ -8503,7 +8504,7 @@ function appliquerConfig() {
 
 
 /* V61.00 - Marqueur de version stabilisee */
-window.CAM_BASKET_VERSION = "V65.42-GESTION-COULEURS-BOUTONS-MATCHS";
+window.CAM_BASKET_VERSION = "V65.43-GESTION-COULEURS-DOM-EXT-FORFAITS";
 
 </script>
 
@@ -9105,6 +9106,48 @@ header #mainLogo{
   border-radius:0!important;
   filter:none!important;
   margin:0 auto!important;
+}
+</style>
+
+
+<style id="_couleurs_semantiques_matchs_v6543">
+/* V65.43 — Couleurs sémantiques fixes, indépendantes des couleurs du club.
+   Domicile = bleu, Extérieur = orange, forfaits = rouge. */
+html body .weekend-match-type.type-dom,
+html body .weekend-match-type.type-dom.role-badge,
+html body .badge-home,
+html body .badge-home.role-badge{
+  background:rgba(59,130,246,.22)!important;
+  color:#9dccff!important;
+  -webkit-text-fill-color:#9dccff!important;
+  border-color:rgba(59,130,246,.92)!important;
+  box-shadow:none!important;
+}
+
+html body .weekend-match-type.type-ext,
+html body .weekend-match-type.type-ext.role-badge,
+html body .badge-away,
+html body .badge-away.role-badge{
+  background:rgba(255,138,31,.22)!important;
+  color:#ffc078!important;
+  -webkit-text-fill-color:#ffc078!important;
+  border-color:rgba(255,138,31,.94)!important;
+  box-shadow:none!important;
+}
+
+html body .weekend-status.forfait-adverse,
+html body .weekend-status.forfait-adverse.role-badge,
+html body .weekend-status.forfait-cam,
+html body .weekend-status.forfait-cam.role-badge{
+  background:rgba(224,64,64,.18)!important;
+  color:#ffb3b3!important;
+  -webkit-text-fill-color:#ffb3b3!important;
+  border-color:rgba(224,64,64,.82)!important;
+  box-shadow:none!important;
+}
+
+html body .weekend-match.has-forfait{
+  border-left-color:#e04040!important;
 }
 </style>
 

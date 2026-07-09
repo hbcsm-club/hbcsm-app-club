@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- Démo App Club V63.42 - Coach - Alerte À remplacer réellement visible dans l’écran Coach -->
+<!-- Démo App Club V63.43 - Coach - couleurs Domicile/Extérieur et forfaits cohérentes -->
 
 <html lang="fr">
 <head>
@@ -13,7 +13,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Démo Coach Club</title>
   <meta name="theme-color" content="#1f4e79" />
-  <meta name="cam-basket-version" content="V63.42-COACH-ALERTE-REMPLACER-VISIBLE" />
+  <meta name="cam-basket-version" content="V63.43-COACH-COULEURS-DOM-EXT-FORFAITS" />
   <style>
     :root{
       --bg:#050505;
@@ -3511,7 +3511,7 @@ small{
     <!-- Badge version cliquable — haut gauche -->
     <button onclick="openInfoModal()" id="versionBadge" style="
       display:none;
-    ">V63.42 COACH</button>
+    ">V63.43 COACH</button>
     <div class="hero">
       <div style="position:relative;display:inline-block;">
         <div class="hero-logo-btn" role="button" tabindex="0"
@@ -7601,6 +7601,7 @@ async function annulerConvocation() {
   }
 }
 
+// V63.43 — Couleurs sémantiques Domicile / Extérieur / forfait harmonisées.
 // V63.42 — Affichage réel de la convocation et du statut « À remplacer » dans l’écran Coach.
 // V63.41 — Restauration fiable des données de convocation après rechargement.
 // V63.40 — WhatsApp convocation enrichi, CONFIG respectée et commentaire coach récupéré de façon fiable.
@@ -8495,11 +8496,12 @@ openMatches = function(){
 <div id="infoModal" class="modal-overlay" onclick="closeInfoModal(event)">
     <div class="modal-card" onclick="event.stopPropagation()">
       <h3 id="versionAppTitle">Application Démo App Club</h3>
-      <div class="modal-line"><span class="modal-label">Version :</span> V63.42 COACH</div>
+      <div class="modal-line"><span class="modal-label">Version :</span> V63.43 COACH</div>
       <div class="modal-line"><span class="modal-label">Date de création :</span> 20/04/2026</div>
-      <div class="modal-line"><span class="modal-label">Dernière mise à jour :</span> 06/07/2026</div>
+      <div class="modal-line"><span class="modal-label">Dernière mise à jour :</span> 09/07/2026</div>
       <div class="modal-line"><span class="modal-label">Modifications :</span></div>
       <ul class="modal-list">
+        <li>V63.43 — Coach : badges Domicile bleus, Extérieur orange et indicateurs de forfait rouges</li>
         <li>V63.42 — Coach : bloc Convocation ajouté dans le véritable écran Coach ; alerte et joueur « À remplacer » visibles après rechargement</li>
         <li>V63.41 — Coach : convocation restaurée après rechargement et statut « À remplacer » visible côté Coach</li>
         <li>V63.40 — Coach : récupération fiable du commentaire coach dans le message WhatsApp</li>
@@ -9168,7 +9170,7 @@ function appliquerConfig() {
 
 
 /* V61.00 - Marqueur de version stabilisee */
-window.CAM_BASKET_VERSION = "V63.42-COACH-ALERTE-REMPLACER-VISIBLE";
+window.CAM_BASKET_VERSION = "V63.43-COACH-COULEURS-DOM-EXT-FORFAITS";
 
 </script>
 
@@ -9640,6 +9642,57 @@ header #mainLogo{
   border-radius:0!important;
   filter:none!important;
   margin:0 auto!important;
+}
+</style>
+
+
+<style id="_couleurs_semantiques_matchs_v6343">
+/* V63.43 — Couleurs sémantiques fixes, indépendantes des couleurs du club.
+   Domicile = bleu, Extérieur = orange, forfaits = rouge. */
+html body .weekend-match-type.type-dom,
+html body .weekend-match-type.type-dom.role-badge,
+html body .badge-home,
+html body .badge-home.role-badge{
+  background:rgba(59,130,246,.22)!important;
+  color:#9dccff!important;
+  -webkit-text-fill-color:#9dccff!important;
+  border-color:rgba(59,130,246,.92)!important;
+  box-shadow:none!important;
+}
+
+html body .weekend-match-type.type-ext,
+html body .weekend-match-type.type-ext.role-badge,
+html body .badge-away,
+html body .badge-away.role-badge{
+  background:rgba(255,138,31,.22)!important;
+  color:#ffc078!important;
+  -webkit-text-fill-color:#ffc078!important;
+  border-color:rgba(255,138,31,.94)!important;
+  box-shadow:none!important;
+}
+
+html body .weekend-status.forfait-adverse,
+html body .weekend-status.forfait-adverse.role-badge,
+html body .weekend-status.forfait-cam,
+html body .weekend-status.forfait-cam.role-badge{
+  background:rgba(224,64,64,.18)!important;
+  color:#ffb3b3!important;
+  -webkit-text-fill-color:#ffb3b3!important;
+  border-color:rgba(224,64,64,.82)!important;
+  box-shadow:none!important;
+}
+
+html body .weekend-match.has-forfait{
+  border-left-color:#e04040!important;
+}
+
+html body .coach-space-match.has-forfait{
+  border-color:rgba(224,64,64,.72)!important;
+}
+html body .coach-forfait-state,
+html body .coach-forfait-label{
+  color:#ffb3b3!important;
+  -webkit-text-fill-color:#ffb3b3!important;
 }
 </style>
 
